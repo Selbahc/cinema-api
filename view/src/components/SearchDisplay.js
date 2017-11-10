@@ -11,22 +11,29 @@ class SearchDisplay extends Component {
   render() {
     return (
       <div>
-        <MovieLayout movie={this.props.bestResult}/>
-
-        {!this.state.showMore &&
-          <button onClick={this.toggleShowMore}>Show more results</button>
-        }
-        {this.state.showMore &&
-          <button onClick={this.toggleShowMore}>Show one result</button>
-        }
-
-        {this.state.showMore &&
-          this.props.allResults.map((movie, i) => {
-            if (i > 0 && i < 6) {
-              return <MovieLayout key={i} movie={movie} />
+        <div className="columns">
+          <div className="column col-12">
+            {!this.state.showMore &&
+              <button className="btn btn-primary btn-block" onClick={this.toggleShowMore}>Show All Results</button>
             }
-          })
-        }
+            {this.state.showMore &&
+              <button className="btn btn-block" onClick={this.toggleShowMore}>Show Only Best Result</button>
+            }
+          </div>
+        </div>
+        
+        <div className="container">
+          <div className="columns">
+            <MovieLayout movie={this.props.bestResult}/>
+            {this.state.showMore &&
+              this.props.allResults.map((movie, i) => {
+                if (i > 0) {
+                  return <MovieLayout key={i} movie={movie} />
+                }
+              })
+            }
+          </div>
+        </div>
       </div>
     );
   }

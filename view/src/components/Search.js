@@ -9,7 +9,6 @@ class Search extends Component {
   }
 
   fetchQuery(e) {
-    e.preventDefault();
     this.setState({query: e.target.value});
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=737bb3a99bc114b5e28fb839797cf86a&language=fr-FR&query=${this.state.query}&page=1&include_adult=false`)
       .then((response) => response.json())
@@ -30,8 +29,8 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" name="query" value={this.state.query} onChange={(e) => this.fetchQuery(e)}/>
+      <div className="container">
+        <input className="form-input" type="text" name="query" placeHolder="Search a movie..." value={this.state.query} onChange={(e) => this.fetchQuery(e)}/>
 
         {this.state.query &&
           <SearchDisplay

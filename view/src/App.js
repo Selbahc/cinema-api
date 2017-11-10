@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import '../node_modules/spectre.css/dist/spectre.min.css';
 
 import Search from './components/Search';
 import Random from './components/Random';
