@@ -5,12 +5,15 @@ class SearchDisplay extends Component {
   state = {
     showMore: false
   }
+
   toggleShowMore = () => {
     this.state.showMore === false ? this.setState({showMore: true}) : this.setState({showMore: false})
   }
+
   render() {
     return (
       <div>
+        
         <div className="columns">
           <div className="column col-12">
             {!this.state.showMore &&
@@ -25,6 +28,7 @@ class SearchDisplay extends Component {
         <div className="container">
           <div className="columns">
             <MovieLayout movie={this.props.bestResult}/>
+            
             {this.state.showMore &&
               this.props.allResults.map((movie, i) => {
                 if (i > 0) {
