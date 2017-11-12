@@ -8,4 +8,4 @@ const MovieSchema = new mongoose.Schema({
     poster: String
 }, {versionKey: false});
 
-module.exports = mongoose.model('Movie', MovieSchema);
+module.exports = mongoose.model('Favorite', MovieSchema);
