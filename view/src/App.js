@@ -5,18 +5,16 @@ import '../node_modules/spectre.css/dist/spectre-icons.min.css';
 
 
 import Search from './components/Search';
-import Random from './components/Random';
-import ToSee from './components/ToSee';
+import GetFavorites from './components/GetFavorites';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Search />
-
-        {/* <Random /> */}
-        {/* <ToSee /> */}
-
+        <h1>MY FAVORITES :</h1>
+        <GetFavorites />
       </div>
     );
   }

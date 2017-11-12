@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const MovieSchema = new mongoose.Schema({
-    date: Number,
+    release_date: String,
     overview: String,
     title: {type: String, required: true},
-    originalTitle: {type: String, required: true},
-    poster: String
+    original_title: {type: String, required: true},
+    poster_path: String
 }, {versionKey: false});
 
 module.exports = mongoose.model('Favorite', MovieSchema);

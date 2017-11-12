@@ -15,14 +15,22 @@ const upload = multer({ storage: storage })
 const router = express.Router();
 
 
-router.post('/favorites/new', upload.single('poster'), (req, res) => {
+router.post('/favorites/new', upload.single('poster_path'), (req, res) => {
 	const newFavorite = new Favorite(req.body);
-	newFavorite.poster = req.file.filename;
+	newFavorite.poster_path = req.file.filename;
 
 	newFavorite.save(err => {
-		if (err) return res.send(err);
+		if (err) return console.log(err);
 		res.json({"newFavorite" : "Movie successfully added to favorite"})
 	})
 });
+
+router.get('/favorites', (req, res) => {
+	Favorite.find({}, (err, favorites) => {
+		if (err) return res.send(err);
+
+		res.json(favorites);
+	})
+})
 
 module.exports = router;

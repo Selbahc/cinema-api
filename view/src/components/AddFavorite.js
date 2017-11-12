@@ -8,11 +8,11 @@ class AddFavorite extends Component {
 			.then(img => {
 				const formData = new FormData();
 				
-				formData.append("date", this.props.favorite.release_date.slice(0,4));
+				formData.append("release_date", this.props.favorite.release_date);
 				formData.append("overview", this.props.favorite.overview);
 				formData.append("title", this.props.favorite.title);
-				formData.append("originalTitle", this.props.favorite.original_title);
-				formData.append("poster", img);
+				formData.append("original_title", this.props.favorite.original_title);
+				formData.append("poster_path", img);
 
 				const request = new XMLHttpRequest();
 				request.open("POST", "http://localhost:3001/favorites/new");

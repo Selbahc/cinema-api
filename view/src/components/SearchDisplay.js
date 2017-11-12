@@ -27,14 +27,16 @@ class SearchDisplay extends Component {
         
         <div className="container">
           <div className="columns">
-            <MovieLayout movie={this.props.bestResult}/>
+            <MovieLayout movie={this.props.bestResult} posterUrl={true} />
             
             {this.state.showMore &&
-              this.props.allResults.map((movie, i) => {
-                if (i > 0) {
-                  return <MovieLayout key={i} movie={movie} />
-                }
-              })
+              this.props.allResults.map((movie, i) => i > 0 ? 
+                <MovieLayout 
+                  key={i} 
+                  movie={movie} 
+                  posterUrl={true} /> 
+                : false
+              )
             }
           </div>
         </div>
